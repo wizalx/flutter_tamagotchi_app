@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/pages/registration.dart';
 import 'package:flutter_app/pages/sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/user/user_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +17,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(scaffoldBackgroundColor: const Color(0xFFEEBD17)),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<UserBloc>(create: (BuildContext context) => UserBloc())
+        ],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(scaffoldBackgroundColor: const Color(0xFFEEBD17)),
+          home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        ));
   }
 }
 
@@ -41,7 +48,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -55,49 +61,48 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 200,
-              height: 200,
-              child: Image.asset('assets/lego_enter.png')
-            ),
-            ElevatedButton(
-                onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegistrationScreen()));},
-                child: Text(
-                    'LOG IN',
-                    style: GoogleFonts.righteous(
-                        fontSize: 24,
-                        textStyle: const TextStyle(color: Colors.white))
-                ),
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.black))
-            ),
-            TextButton(
-                onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignInScreen()));},
-                child: Text(
-                    'SIGN UP',
-                    style: GoogleFonts.righteous(
-                        fontSize: 24,
-                        textStyle: const TextStyle(color: Colors.black)
-                    )
-                )
-            )
-          ]
-        ),
+            // Column is also a layout widget. It takes a list of children and
+            // arranges them vertically. By default, it sizes itself to fit its
+            // children horizontally, and tries to be as tall as its parent.
+            //
+            // Invoke "debug painting" (press "p" in the console, choose the
+            // "Toggle Debug Paint" action from the Flutter Inspector in Android
+            // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+            // to see the wireframe for each widget.
+            //
+            // Column has various properties to control how it sizes itself and
+            // how it positions its children. Here we use mainAxisAlignment to
+            // center the children vertically; the main axis here is the vertical
+            // axis because Columns are vertical (the cross axis would be
+            // horizontal).
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: Image.asset('assets/lego_enter.png')),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => RegistrationScreen()));
+                  },
+                  child: Text('LOG IN',
+                      style: GoogleFonts.righteous(
+                          fontSize: 24,
+                          textStyle: const TextStyle(color: Colors.white))),
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.black))),
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SignInScreen()));
+                  },
+                  child: Text('SIGN UP',
+                      style: GoogleFonts.righteous(
+                          fontSize: 24,
+                          textStyle: const TextStyle(color: Colors.black))))
+            ]),
       ),
     );
   }

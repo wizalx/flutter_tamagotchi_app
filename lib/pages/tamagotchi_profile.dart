@@ -5,7 +5,12 @@ import 'package:flutter_app/widgets/profile_widget.dart';
 import 'package:flutter_app/widgets/status_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TamaProfScreen extends StatelessWidget{
+class TamaProfScreen extends StatefulWidget{
+  @override
+  State<TamaProfScreen> createState() => _TamaProfScreenState();
+}
+
+class _TamaProfScreenState extends State<TamaProfScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,5 +28,4 @@ class TamaProfScreen extends StatelessWidget{
       ),
     );
   }
-
 }

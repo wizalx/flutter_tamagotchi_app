@@ -11,7 +11,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc() : super(UserInitial()) {
     on<AuthorizationEvent>((event, emit) {
       // TODO: implement event handler
-      print('eeeeeeee');
+      print('Success');
       if (event.login == 'admin' && event.password == '123456789') {
         print(event.login);
         print(event.password);

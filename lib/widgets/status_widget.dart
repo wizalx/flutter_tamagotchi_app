@@ -13,40 +13,6 @@ class StatusWidget extends StatelessWidget {
             value: 0.7,
             valueColor: new AlwaysStoppedAnimation<Color>(Colors.deepOrange),
           ),
-          /*Container(
-            width: 400,
-            child: Row(
-              children: [
-                LinearProgressIndicator(
-                  value: 0.7,
-                  valueColor:
-                      new AlwaysStoppedAnimation<Color>(Colors.deepOrange),
-                ),
-                LinearProgressIndicator(
-                  value: 0.7,
-                  valueColor:
-                      new AlwaysStoppedAnimation<Color>(Colors.deepOrange),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: 400,
-            child: Row(
-              children: [
-                LinearProgressIndicator(
-                  value: 0.7,
-                  valueColor:
-                      new AlwaysStoppedAnimation<Color>(Colors.deepOrange),
-                ),
-                LinearProgressIndicator(
-                  value: 0.7,
-                  valueColor:
-                      new AlwaysStoppedAnimation<Color>(Colors.deepOrange),
-                ),
-              ],
-            ),
-          ),*/
           Text('Status'),
         ],
       ),

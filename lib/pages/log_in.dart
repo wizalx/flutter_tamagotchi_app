@@ -5,7 +5,7 @@ import 'package:flutter_app/pages/tamagotchi_profile.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RegistrationScreen extends StatelessWidget{
+class LogInScreen extends StatelessWidget{
   TextEditingController loginController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -73,8 +73,10 @@ class RegistrationScreen extends StatelessWidget{
                             style: GoogleFonts.righteous(
                                 fontSize: 24,
                                 textStyle: const TextStyle(color: Colors.white))
-                        )
-                    )
+                        ),
+                        style: ButtonStyle(
+                            backgroundColor:
+                            MaterialStateProperty.all(Colors.black)))
                   ],
                 ),
               ),

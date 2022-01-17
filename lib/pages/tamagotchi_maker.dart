@@ -28,7 +28,7 @@ class SignInScreen extends StatelessWidget{
                     child: Image.asset('assets/lego_enter.png')
                 ),
                 Text(
-                    'FILL IN THE INPUT FIELDS',
+                    'SELECT TAMAGOTCHI\'S GENDER AND NAME',
                     style: GoogleFonts.righteous(
                         fontSize: 24,
                         textStyle: const TextStyle(color: Colors.black))
@@ -59,7 +59,7 @@ class SignInScreen extends StatelessWidget{
                     onPressed: () {},
                     child:
                     Text(
-                        'SIGN IN',
+                        'GIRL',
                         style: GoogleFonts.righteous(
                             fontSize: 24,
                             textStyle: const TextStyle(color: Colors.white))

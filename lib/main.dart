@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app/pages/registration.dart';
+import 'package:flutter_app/pages/log_in.dart';
 import 'package:flutter_app/pages/sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => RegistrationScreen()));
+                        builder: (context) => LogInScreen()));
                   },
                   child: Text('LOG IN',
                       style: GoogleFonts.righteous(

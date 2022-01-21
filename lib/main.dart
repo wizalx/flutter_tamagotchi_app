@@ -3,9 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/pages/log_in.dart';
 import 'package:flutter_app/pages/sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'bloc/user/user_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,15 +14,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-        providers: [
-          BlocProvider<UserBloc>(create: (BuildContext context) => UserBloc())
-        ],
-        child: MaterialApp(
+    return MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(scaffoldBackgroundColor: const Color(0xFFEEBD17)),
           home: const MyHomePage(title: 'Flutter Demo Home Page'),
-        ));
+        );
   }
 }
 

@@ -1,7 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class StatusWidget extends StatelessWidget {
+
+  const StatusWidget({Key? key, this.value = 0.0}) : super(key: key);
+  final double value;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,10 +13,10 @@ class StatusWidget extends StatelessWidget {
       child: Column(
         children: [
           LinearProgressIndicator(
-            value: 0.7,
-            valueColor: new AlwaysStoppedAnimation<Color>(Colors.deepOrange),
+            value: value,
+            valueColor: const AlwaysStoppedAnimation<Color>(Colors.deepOrange),
           ),
-          Text('Status'),
+          const Text('Status'),
         ],
       ),
     );

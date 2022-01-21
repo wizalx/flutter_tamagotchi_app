@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/bloc/user/user_bloc.dart';
-import 'package:flutter_app/pages/tamagotchi_profile.dart';
+import 'package:flutter_app/views/profile/tamagotchi_profile.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LogInScreen extends StatelessWidget{
   TextEditingController loginController = TextEditingController();
@@ -11,14 +9,8 @@ class LogInScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
-      builder: (context, state) {
-        if (state is AuthSuccessful) {
-          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) {
-            return TamaProfScreen();
-          }), (route) => true);
-        }
-        return Scaffold(
+    return
+      Scaffold(
           resizeToAvoidBottomInset: true,
           appBar: AppBar(
             backgroundColor: const Color(0xFFEEBD17),
@@ -62,10 +54,9 @@ class LogInScreen extends StatelessWidget{
                         )),
                     ElevatedButton(
                         onPressed: () {
-                          BlocProvider.of<UserBloc>(context)
-                              .add(AuthorizationEvent(
-                              password: passwordController.text.trim(),
-                              login: loginController.text.trim()));
+                            Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => TamaProfScreen()
+                            ));
                         },
                         child:
                         Text(
@@ -83,8 +74,6 @@ class LogInScreen extends StatelessWidget{
             ),
           ),
         );
-      },
-    );
   }
 
 }
